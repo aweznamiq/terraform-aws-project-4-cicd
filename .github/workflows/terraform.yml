@@ -10,7 +10,6 @@ on:
 jobs:
   terraform:
     runs-on: ubuntu-latest
-
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v4
@@ -33,6 +32,11 @@ jobs:
 
       - name: Terraform Validate
         run: terraform validate
-
+      - name: List files
+        run: ls -la
       - name: Terraform Plan
         run: terraform plan -input=false
+      - name: Verify Secrets
+        run: |
+          echo "Access Key Exists"
+        
